@@ -52,4 +52,4 @@ git apply --ignore-whitespace extensions/sd-webui-latent-couple/0001-Adding-afte
 
 ## Credits
 - https://github.com/ashen-sensored/stable-diffusion-webui-two-shot
-- two shot diffusion.ipynb https://colab.research.google.com/drive/1UdElpQfKFjY5luch9v_LlmSdH7AmeiDe?usp=sharing
+- https://colab.research.google.com/drive/1UdElpQfKFjY5luch9v_LlmSdH7AmeiDe?usp=sharing
