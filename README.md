@@ -1,57 +1,48 @@
-# Latent Couple extension (two shot diffusion port)
-This extension is an extension of the built-in Composable Diffusion.
-This allows you to determine the region of the latent space that reflects your subprompts.
+# Latent Couple extension
+
+> ❗️ This package was originally forked from [ashen-sensored/stable-diffusion-webui-two-shot](https://github.com/ashen-sensored/stable-diffusion-webui-two-shot), and I am no longer actively maintaining it. Please consider reaching out to the original author or the community actively involved in the project. They would be better equipped to provide you with the most up-to-date information and support.
+
+This extension is an extension of the built-in composable diffusion that allows you to determine the region of the latent space that reflects your subprompts.
 
 ## How to use
-![20230303.png](./screenshots/20230303.png)
-![20230213.png](./screenshots/20230213.png)
-
+![](./screenshots/20230303.png)
 
 ### Enabled
-The effect of Latent Couple appears only when Enabled is checked.
+The effect of Latent Couple appears only when enabled is checked.
 
 ### Divisions, Positions, and Weights
 Regions are created based on these parameters.
 
-### end at this step
+### End at this step
 The processing of Latent Couple is performed until the specified step is reached.
 
 ### Visualize button and Regions
 Press the Visualize button and you will get an image grid that visualizes the regions represented by the parameters.
 
 ### Extra generation params and Apply button
-When you press the Send to button in PNG Info, the parameters of the saved Latent Couple are set to Extra generation params.
+When you press the Send to button in PNG Info, the parameters of the saved Latent Couple are set to extra generation params.
 Press the Apply button to actually apply the parameters.
 
-## Extra generation params
-Extra generation params provided by this extension are saved as PNG Info in the output file.
-```
-Latent Couple: "divisions=1:1,1:2,1:2 positions=0:0,0:0,0:1 weights=0.2,0.8,0.8 end at step=20"
-```
-
 ## Examples
-parameters
+![](https://i.imgur.com/JM4MVJEl.jpg)
+Parameters:
 ```
-((ultra-detailed)), ((illustration)), 2girls
-AND ((ultra-detailed)), ((illustration)), 2girls, black hair
-AND ((ultra-detailed)), ((illustration)), 2girls, blonde hair
-Negative prompt: (low quality, worst quality:1.4)
-Steps: 28, Sampler: Euler a, CFG scale: 5, Seed: 722014241, Size: 512x512, Model hash: 3f64f3baf5, Model: Anything-v3.0-fp16, ENSD: 31337, Latent Couple: "divisions=1:1,1:2,1:2 positions=0:0,0:0,0:1 weights=0.2,0.8,0.8 end at step=20", Eta: 0.67
+flower garden background
+AND a man, short brown hair, black suit, red tie, modelshoot style
+AND beautiful cute woman, long black hair, white wedding dress
 ```
-outputs
-- end at step=20 https://imgur.com/OEaRFgh
-- end at step=4 https://imgur.com/a1kyvhX
-- end at step=0 https://imgur.com/yhGF7g8
+Output:
+![](https://i.imgur.com/W1ZU5Ka.jpg)
 
 ## Old prerequisite
-This extension need to apply cfg_denoised_callback-ea9bd9fc.patch (as of Feb 5, 2023 origin/HEAD commit ea9bd9fc).
+This extension need to apply cfg_denoised_callback-ea9bd9fc.patch
 ```
-git apply --ignore-whitespace extensions/stable-diffusion-webui-two-shot/cfg_denoised_callback-ea9bd9fc.patch
+git apply --ignore-whitespace extensions/sd-webui-latent-couple/cfg_denoised_callback-ea9bd9fc.patch
 ```
 
-## prerequisite for prompt pasting
+## Prerequisite for prompt pasting
 ```
-git apply --ignore-whitespace extensions/stable-diffusion-webui-two-shot/0001-Adding-after_ui_callback-for-scripts.patch
+git apply --ignore-whitespace extensions/sd-webui-latent-couple/0001-Adding-after_ui_callback-for-scripts.patch
 ```
 
 ## Issues
@@ -60,4 +51,5 @@ git apply --ignore-whitespace extensions/stable-diffusion-webui-two-shot/0001-Ad
 
 
 ## Credits
+- https://github.com/ashen-sensored/stable-diffusion-webui-two-shot
 - two shot diffusion.ipynb https://colab.research.google.com/drive/1UdElpQfKFjY5luch9v_LlmSdH7AmeiDe?usp=sharing
